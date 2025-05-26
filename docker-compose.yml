@@ -1,0 +1,85 @@
+services:
+  middleware:
+    build:
+      context: .  # Directorio donde se encuentra el Dockerfile
+      dockerfile: dockerfile  # Nombre del archivo Dockerfile (opcional si se llama Dockerfile)
+    image: nodos  # Nombre y etiqueta de la imagen
+    container_name: Middleware
+    ports:
+      - "5000:3000"
+    networks:
+      netapi:
+        ipv4_address: 192.168.0.2
+    command: npm start  # Comando para ejecutar
+
+  nodo0:
+    image: nodos  # Nombre y etiqueta de la imagen
+    container_name: Nodo0
+    networks:
+      netapi:
+        ipv4_address: 192.168.0.3
+    command: npm run start-nodo0  # Comando para ejecutar
+
+  nodo1:
+    image: nodos  # Nombre y etiqueta de la imagen
+    container_name: Nodo1
+    networks:
+      netapi:
+        ipv4_address: 192.168.0.4
+    command: npm run start-nodo1  # Comando para ejecutar
+
+  nodo2:
+    image: nodos  # Nombre y etiqueta de la imagen
+    container_name: Nodo2
+    networks:
+      netapi:
+        ipv4_address: 192.168.0.5
+    command: npm run start-nodo2  # Comando para ejecutar
+
+  nodo3:
+    image: nodos  # Nombre y etiqueta de la imagen
+    container_name: Nodo3
+    networks:
+      netapi:
+        ipv4_address: 192.168.0.6
+    command: npm run start-nodo3  # Comando para ejecutar
+
+  nodo4:
+    image: nodos  # Nombre y etiqueta de la imagen
+    container_name: Nodo4
+    networks:
+      netapi:
+        ipv4_address: 192.168.0.7
+    command: npm run start-nodo4  # Comando para ejecutar
+
+  nodo5:
+    image: nodos  # Nombre y etiqueta de la imagen
+    container_name: Nodo5
+    networks:
+      netapi:
+        ipv4_address: 192.168.0.8
+    command: npm run start-nodo5  # Comando para ejecutar
+
+  nodo6:
+    image: nodos  # Nombre y etiqueta de la imagen
+    container_name: Nodo6
+    networks:
+      netapi:
+        ipv4_address: 192.168.0.9
+    command: npm run start-nodo6  # Comando para ejecutar
+
+  nodo7:
+    image: nodos  # Nombre y etiqueta de la imagen
+    container_name: Nodo7
+    networks:
+      netapi:
+        ipv4_address: 192.168.0.10
+    command: npm run start-nodo7  # Comando para ejecutar
+
+networks:
+  netapi:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 192.168.0.0/16
+         gateway: 192.168.0.1
