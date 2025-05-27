@@ -13,6 +13,7 @@
     "start-nodo5": "nodemon nodo5/nodo5.js",
     "start-nodo6": "nodemon nodo6/nodo6.js",
     "start-nodo7": "nodemon nodo7/nodo7.js",
+    "start-nodo8": "nodemon nodo8/nodo8.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

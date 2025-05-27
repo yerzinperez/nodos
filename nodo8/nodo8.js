@@ -7,11 +7,10 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 const nodosAdyacentes = {
-    "nodo2": "http://192.168.0.5:3000/frases",
-    "nodo8": "http://192.168.0.11:3000/frases",
+    "nodo5": "http://192.168.0.8:3000/frases"
 };
 
-const frase = 'Frase 3: Ebrios de entusiasmo entramos,';
+const frase = 'Frase 0: Estudien vagos.';
 
 app.post('/frases', async (req, res) => {
     const { origen, solicitud } = req.body;
@@ -23,7 +22,7 @@ app.post('/frases', async (req, res) => {
         for (const nodo in nodosAdyacentes) {
             if (nodo !== origen) {
                 const response = await axios.post(nodosAdyacentes[nodo], {
-                    origen: "nodo5",
+                    origen: "nodo8",
                     solicitud: solicitud
                 });
 
